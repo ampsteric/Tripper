@@ -251,6 +251,23 @@ export default function Newpost() {
                                     className="form-text text-danger"
                                 ></small>
                             </div>
+
+                            <div className="form-group">
+                                <label htmlFor="inputName">Description :</label>
+                                <textarea
+                                    type="text"
+                                    className="form-control"
+                                    onKeyUp={validateName}
+                                    id="inputName"
+                                    placeholder="Enter Description"
+                                    name="name"
+                                    required
+                                />
+                                <small
+                                    id="nameValidationMsg"
+                                    className="form-text text-danger"
+                                ></small>
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="photo">Photo:</label>
                                 <input

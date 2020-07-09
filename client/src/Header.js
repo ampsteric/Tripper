@@ -1,6 +1,7 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { AuthContext } from "./Auth/auth-Context";
 export default function Header() {
+    const auth = useContext(AuthContext);
     return (
         <div>
             <nav>
@@ -12,14 +13,27 @@ export default function Header() {
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li>
-                            <a href="sass.html">Users</a>
+                            <a href="/">Users</a>
                         </li>
                         <li>
-                            <a href="/newUser">Auth</a>
+                            <a href="/register">Auth</a>
                         </li>
-                        <li>
-                            <a href="/register">New</a>
-                        </li>
+
+                        {auth.isloggedIn && (
+                            <li>
+                                <a href="/newUser">New</a>
+                            </li>
+                        )}
+                        {auth.isloggedIn && (
+                            <li>
+                                <a href="/posts">Posts</a>
+                            </li>
+                        )}
+                        {auth.isloggedIn && (
+                            <li>
+                                <a href={auth.logout}>Logout</a>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </nav>
